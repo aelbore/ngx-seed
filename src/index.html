@@ -7,7 +7,26 @@
     <title>NGX Application Seed</title>
   </head>
   <body>
-    <app></app>
+    <app>Loading...</app>
+
+    <!--shims -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+
+    <!-- libs -->
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script>
+      System.import('app/main')
+        .catch(function (e) {
+          console.error(e.stack || e,
+            'Not expecting this error? Report it at https://github.com/mgechev/angular-seed/issues');
+        });
+    </script>
+
   </body>
 </html>
   

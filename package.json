@@ -27,8 +27,10 @@
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
     "@angular/router": "5.2.9",
+    "core-js": "2.5.3",
     "rxjs": "5.5.7",
-    "zone.js": "0.8.20"
+    "zone.js": "0.8.20",
+    "systemjs": "0.21.0"
   },
   "devDependencies": {
     "@ngx-devtools/common": "latest",
