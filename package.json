@@ -4,6 +4,7 @@
   "description": "Angular Application Seed",
   "main": "index.js",
   "scripts": {
+    "gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +31,12 @@
     "zone.js": "0.8.20"
   },
   "devDependencies": {
-    "@ngx-devtools/common": "0.7.2"
+    "@ngx-devtools/common": "latest",
+    "@ngx-devtools/build": "latest",
+    "@ngx-devtools/server": "latest",
+    "@ngx-devtools/bundle": "latest",
+    "@types/gulp": "4.0.5",
+    "@types/node": "9.4.7",
+    "gulp": "4.0.0"
   }
 }
