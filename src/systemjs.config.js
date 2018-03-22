@@ -1,25 +1,35 @@
-(function(global){
+(function (global) {
   System.config({
     "paths": {
-      'npm:': 'node_modules/'
-    },
-    "map": {
-      "app":                        "app",
-      "dist":                       "dist",
-      "@angular":                   "npm:@angular"
+      "app/index": "/app/index.js",
+      "@angular/animations": "node_modules/@angular/animations/bundles/animations.umd.js",
+      "@angular/platform-browser/animations": "node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.js",
+      "@angular/common": "node_modules/@angular/common/bundles/common.umd.js",
+      "@angular/common/http": "node_modules/@angular/common/bundles/common-http.umd.js",
+      "@angular/compiler": "node_modules/@angular/compiler/bundles/compiler.umd.js",
+      "@angular/core": "node_modules/@angular/core/bundles/core.umd.js",
+      "@angular/forms": "node_modules/@angular/forms/bundles/forms.umd.js",
+      "@angular/platform-browser": "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
+      "@angular/platform-browser-dynamic": "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js",
+      "@angular/router": "node_modules/@angular/router/bundles/router.umd.js",
+      "@angular/animations/browser": "node_modules/@angular/animations/bundles/animations-browser.umd.js",
+      "tslib": "node_modules/tslib/tslib.js",
+      "@angular/common/testing": "node_modules/@angular/common/bundles/common-testing.umd.js",
+      "@angular/common/http/testing": "node_modules/@angular/common/bundles/common-http-testing.umd.js",
+      "@angular/compiler/testing": "node_modules/@angular/compiler/bundles/compiler-testing.umd.js",
+      "@angular/core/testing": "node_modules/@angular/core/bundles/core-testing.umd.js",
+      "@angular/platform-browser/testing": "node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js",
+      "@angular/platform-browser-dynamic/testing": "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js",
+      "@angular/router/testing": "node_modules/@angular/router/bundles/router-testing.umd.js",
+      "rxjs/operators": "node_modules/rxjs/operators/index.js",
+      "app/": "/app/",
+      "dist/": "/base/dist/",
+      "": "node_modules/"
     },
     "packages": {
-      "app":                                { "main": "main.js",  "defaultExtension": "js" },
-      "dist":                               { "main": "index.js", "defaultExtension": "js" },
-      "@angular/animations":                { "main": "bundles/animations.umd.js", "defaultExtension": "js" },
-      "@angular/common":                    { "main": "bundles/common.umd.js", "defaultExtension": "js" },
-      "@angular/compiler":                  { "main": "bundles/compiler.umd.js", "defaultExtension": "js" },
-      "@angular/core":                      { "main": "bundles/core.umd.js", "defaultExtension": "js" },
-      "@angular/forms":                     { "main": "bundles/forms.umd.js", "defaultExtension": "js" },
-      "@angular/http":                      { "main": "bundles/http.umd.js", "defaultExtension": "js" },
-      "@angular/platform-browser":          { "main": "bundles/platform-browser.umd.js", "defaultExtension": "js" },
-      "@angular/platform-browser-dynamic":  { "main": "bundles/platform-browser-dynamic.umd.js", "defaultExtension": "js" },
-      "@angular/router":                    { "main": "bundles/router.umd.js", "defaultExtension": "js" }   
-    }   
-  })
+      "app": {
+        "defaultExtension": "js"
+      }
+    }
+  });
 })(this);

@@ -1,5 +1,6 @@
-export * from './navbar/index';
-export * from './toolbar/index';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-export * from './app.component';
-export * from './app.module';
+import { AppModule } from './app.module';
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule);

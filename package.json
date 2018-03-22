@@ -33,12 +33,13 @@
     "systemjs": "0.21.0"
   },
   "devDependencies": {
-    "@ngx-devtools/common": "latest",
     "@ngx-devtools/build": "latest",
-    "@ngx-devtools/server": "latest",
     "@ngx-devtools/bundle": "latest",
+    "@ngx-devtools/common": "latest",
+    "@ngx-devtools/server": "latest",
     "@types/gulp": "4.0.5",
     "@types/node": "9.4.7",
-    "gulp": "4.0.0"
+    "gulp": "4.0.0",
+    "systemjs-builder": "0.16.12"
   }
 }

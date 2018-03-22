@@ -1,0 +1,9 @@
+{
+  "server": {
+    "distRoot": "dist",
+    "staticFolders": [
+      { "route": "dist", "path": "dist" },
+      { "route": "node_modules", "path": "node_modules" }
+    ]
+  }
+}

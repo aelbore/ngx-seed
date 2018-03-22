@@ -4,7 +4,7 @@ const { deleteFolderAsync, streamToPromise, copyFiles } = require('@ngx-devtools
 const { build } = require('@ngx-devtools/build');
 
 const buildAsync = () => deleteFolderAsync('dist').then(() => build());
-const copyToDist = () => copyFiles([ 'src/index.html', 'src/systemjs.config.js' ], 'dist');
+const copyToDist = () => copyFiles([ 'src/*.html', 'src/*.js' ], 'dist');
 
 gulp.task('build', () => buildAsync());
 
@@ -12,3 +12,5 @@ gulp.task('default', () => {
   return deleteFolderAsync('dist')
     .then(() => Promise.all([ copyToDist(), build() ])); 
 });
+
+gulp.task('bundle:rxjs', (done) => require('./bundle-rxjs')(done));

@@ -1,24 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { APP_BASE_HREF, CommonModule } from '@angular/common';
 
-import { NavbarModule } from './navbar';
-import { ToobarModule } from './toolbar';
+import { NavbarModule } from './navbar/index';
+import { ToolbarModule } from './toolbar/index';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  imports: [ 
-    BrowserModule, 
-    CommonModule,
-    RouterModule.forRoot([
-      { path: 'about', loadChildren: 'libs/bundles/about.umd#AboutModule' },
-      { path: 'home', loadChildren: 'libs/bundles/home.umd#HomeModule' }
-    ]),
-    NavbarModule,
-    ToobarModule
-  ],
+  imports: [ BrowserModule, CommonModule, NavbarModule, ToolbarModule, RouterModule.forRoot([ ]) ],
   declarations: [ AppComponent ],
   exports: [ AppComponent ],
   bootstrap: [ AppComponent ]

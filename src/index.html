@@ -17,10 +17,10 @@
 
     <!-- libs -->
     <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/.temp/Rx.min.js"></script>
 
     <script>
-      System.import('app/main')
+      System.import('app')
         .catch(function (e) {
           console.error(e.stack || e,
             'Not expecting this error? Report it at https://github.com/mgechev/angular-seed/issues');
