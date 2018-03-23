@@ -1,8 +1,8 @@
-
 const fs = require('fs');
 const path = require('path');
 
-const glob = (dir, regExcludes, done) => {
+
+const walk = (dir, regExcludes, done) => {
   var results = [];
 
   fs.readdir(dir, function (err, list) {
@@ -29,16 +29,14 @@ const glob = (dir, regExcludes, done) => {
 
         fs.stat(file, function (err, stat) {
           if (stat && stat.isDirectory()) {
-
-            glob(file, regExcludes, function (err, res) {
+            walk(file, regExcludes, function (err, res) {
               results = results.concat(res);
-
               if (!--pending) { done(null, results); }
-
             });
           } else {
             if (!--pending) { done(null, results); }
           }
+          
         });
       } else {
         if (!--pending) { done(null, results); }
@@ -47,4 +45,16 @@ const glob = (dir, regExcludes, done) => {
   });
 };
 
-module.exports = glob;
+const glob = (dir, includes = []) => {
+  const rootDir = path.resolve(dir);
+  return new Promise((resolve, reject) => {
+    walk(rootDir, [], (error, results) => {
+      if (error) reject();
+      if (includes.length <= 0) resolve(results); 
+      results = results.filter(result => includes.includes(path.extname(result)));
+      resolve(results)
+    });
+  });
+};
+
+exports.globAsync = glob;

@@ -1,16 +1,28 @@
 const fs = require('fs');
 const path = require('path');
 
-const getFiles = (dir, [],  ignores = []) => {
+const walk = dir => {
+  let results = [];
+
   const rootDir = path.resolve(dir);
-  return new Promise((resolve, reject) => {
-    const glob = require('./glob');
-    glob(rootDir, [], (error, results) => {
-      if (error) reject();
-      resolve(results);
-    });
+  const files = fs.readdirSync(rootDir);
+  files.forEach(list => {
+    list = path.join(rootDir, list)
+    const stat = fs.statSync(list);
+    if (stat.isDirectory()) {
+      results = results.concat(walk(list));
+    } 
+    if (stat.isFile()) {
+      results.push(list);
+    }
   });
+  return results;
 };
 
-getFiles(path.resolve('src'))
-  .then(files => console.log(files));
+const results = walk(path.resolve('src'));
+console.log(results.length);
+
+require('./glob').globAsync('src').then(files => { 
+  files = files.filter(file => fs.statSync(file).isFile());
+  console.log(files.length);
+});
