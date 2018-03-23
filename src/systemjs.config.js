@@ -1,7 +1,6 @@
 (function (global) {
   System.config({
     "paths": {
-      "app/index": "/app/index.js",
       "@angular/animations": "node_modules/@angular/animations/bundles/animations.umd.js",
       "@angular/platform-browser/animations": "node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.js",
       "@angular/common": "node_modules/@angular/common/bundles/common.umd.js",
@@ -22,14 +21,11 @@
       "@angular/platform-browser-dynamic/testing": "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js",
       "@angular/router/testing": "node_modules/@angular/router/bundles/router-testing.umd.js",
       "rxjs/operators": "node_modules/rxjs/operators/index.js",
-      "app/": "/app/",
-      "dist/": "/base/dist/",
-      "": "node_modules/"
+      "app": "/app/",
+      "dist/": "/base/dist/"
     },
     "packages": {
-      "app": {
-        "defaultExtension": "js"
-      }
+      "app": { "main": "index.js", "defaultExtension": "js" }
     }
   });
 })(this);

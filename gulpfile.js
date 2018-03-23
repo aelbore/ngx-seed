@@ -2,6 +2,7 @@ const gulp = require('gulp');
 
 const { deleteFolderAsync, streamToPromise, copyFiles } = require('@ngx-devtools/common');
 const { build, buildRxjs } = require('@ngx-devtools/build');
+const { bundle } = require('@ngx-devtools/bundle');
 
 const buildAsync = () => deleteFolderAsync('dist').then(() => build());
 const copyToDist = () => copyFiles([ 'src/*.html', 'src/*.js' ], 'dist');
@@ -14,3 +15,5 @@ gulp.task('default', () => {
 });
 
 gulp.task('build:rxjs', done => buildRxjs(done));
+
+gulp.task('bundle', done => build());
