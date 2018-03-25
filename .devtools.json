@@ -4,6 +4,7 @@
     "staticFolders": [
       { "route": "dist", "path": "dist" },
       { "route": "node_modules", "path": "node_modules" }
-    ]
+    ],
+    "watchFiles": [ "package.json" ]
   }
 }
