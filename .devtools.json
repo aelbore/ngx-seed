@@ -2,9 +2,9 @@
   "server": {
     "distRoot": "dist",
     "staticFolders": [
+      { "route": "", "path": "dist" },
       { "route": "dist", "path": "dist" },
       { "route": "node_modules", "path": "node_modules" }
-    ],
-    "watchFiles": [ "package.json" ]
+    ]
   }
 }
