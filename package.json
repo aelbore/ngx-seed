@@ -29,11 +29,10 @@
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
     "@angular/router": "5.2.9",
-    "core-js": "2.5.3",
-    "rxjs": "5.5.7",
-    "systemjs": "0.21.0",
-    "yargs": "^11.0.0",
-    "zone.js": "0.8.20"
+    "core-js": "2.5.4",
+    "rxjs": "5.5.8",
+    "systemjs": "0.21.1",
+    "zone.js": "0.8.24"
   },
   "devDependencies": {
     "@ngx-devtools/build": "latest",
@@ -41,7 +40,7 @@
     "@ngx-devtools/common": "latest",
     "@ngx-devtools/server": "latest",
     "@types/gulp": "4.0.5",
-    "@types/node": "9.4.7",
+    "@types/node": "9.6.1",
     "gulp": "4.0.0"
   }
 }
