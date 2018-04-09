@@ -1,13 +1,13 @@
 {
-  "name": "ngx-seed",
+  "name": "ngx-seed22",
   "version": "1.0.0",
   "description": "Angular Application Seed",
   "main": "index.js",
   "scripts": {
+    "postinstall": "node_modules/.bin/gulp vendor.bundle",
     "gulp": "gulp",
-    "start": "node_modules/.bin/gulp",
-    "build": "node_modules/.bin/gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/.bin/gulp -- --watch --livereload",
+    "build": "node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "@ngx-devtools/server": "latest",
     "@types/gulp": "4.0.5",
     "@types/node": "9.6.1",
+    "express": "4.16.3",
     "gulp": "4.0.0"
   }
 }
