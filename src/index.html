@@ -10,7 +10,7 @@
     <app>Loading...</app>
 
     <!--shims -->
-    <script src="node_modules/.tmp/vendor.min.js"></script>
+    <script src="node_modules/.tmp/shims.min.js"></script>
 
     <!-- libs -->
     <script>      
@@ -22,7 +22,7 @@
         })
         .then(() => Promise.all([ 
           System.import('node_modules/.tmp/Rx.min.js'),
-          System.import('node_modules/.tmp/ng.bundle.min.js')
+          System.import('node_modules/.tmp/angular.min.js')
         ]))
         .then(() => System.import('app'))
         .catch((e) => { console.error(e.stack || e) })

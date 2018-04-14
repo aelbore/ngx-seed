@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 import { NavbarModule } from './navbar/index';
 import { ToolbarModule } from './toolbar/index';
 
+import { AppRouteModule } from './app.route.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  imports: [ BrowserModule, CommonModule, NavbarModule, ToolbarModule, RouterModule.forRoot([ ]) ],
+  imports: [ BrowserModule, RouterModule, CommonModule, NavbarModule, ToolbarModule, AppRouteModule ],
   declarations: [ AppComponent ],
   exports: [ AppComponent ],
   bootstrap: [ AppComponent ]
