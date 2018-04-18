@@ -8,7 +8,7 @@
     "removeComments": true,
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".tmp",
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
