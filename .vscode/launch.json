@@ -10,17 +10,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch via NPM",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run-script",
-        "debug"
-      ],
-      "port": 4000
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "Start Server",
       "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
       "args": [
