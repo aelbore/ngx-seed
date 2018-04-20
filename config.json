@@ -4,13 +4,22 @@
     "rxjs/operators": "node_modules/rxjs/operators/index.js"
   },
   "map": {
-    "app":                        "app",
-    "dist":                       "dist",
-    "tslib":                      "npm:tslib"
+    "app": "app",
+    "dist": "dist",
+    "tslib": "npm:tslib"
   },
   "packages": {
-    "app":                                { "main": "index.js",  "defaultExtension": "js" },
-    "dist":                               { "main": "index.js", "defaultExtension": "js" },
-    "tslib":                              { "main": "tslib.js", "defaultExtension": "js" }
+    "app":  { 
+      "main": "index.js",  
+      "defaultExtension": "js" 
+    },
+    "dist": { 
+      "main": "index.js", 
+      "defaultExtension": "js" 
+    },
+    "tslib": { 
+      "main": "tslib.js", 
+      "defaultExtension": "js" 
+    }
   }   
 }
