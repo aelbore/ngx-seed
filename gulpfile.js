@@ -1,8 +1,7 @@
 const gulp = require('gulp');
-const path = require('path');
 
-const { deleteFolderAsync, copyFiles, watcher, getFiles } = require('@ngx-devtools/common');
-const { build, onClientFileChanged, vendorBundle, buildAsync, rollup, buildProd } = require('@ngx-devtools/build');
+const { deleteFolderAsync, copyFiles, watcher } = require('@ngx-devtools/common');
+const { build, onClientFileChanged, vendorBundle, buildAsync } = require('@ngx-devtools/build');
 
 const { serverStart, onServerFileChanged } = require('@ngx-devtools/server');
 
@@ -18,5 +17,3 @@ gulp.task('default', (done) => {
 });
 
 gulp.task('vendor.bundle', done => vendorBundle()); 
-
-gulp.task('rollup', (done) => rollup(path.resolve('.tmp/main'), 'dist'));
