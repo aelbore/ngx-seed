@@ -34,8 +34,9 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
+    "@angular/compiler": "5.2.10",
+    "@angular/compiler-cli": "5.2.10",
     "@ngx-devtools/build": "latest",
-    "@ngx-devtools/bundle": "latest",
     "@ngx-devtools/common": "latest",
     "@ngx-devtools/server": "latest",
     "@types/gulp": "4.0.5",
