@@ -6,7 +6,7 @@
   "scripts": {
     "gulp": "gulp",
     "start": "npm run gulp -- --watch --livereload --sourceMap",
-    "build": "npm run gulp build -- --sourceMap"
+    "build": "node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,6 @@
     "@ngx-devtools/server": "latest",
     "@types/gulp": "4.0.5",
     "@types/node": "9.6.6",
-    "express": "4.16.3",
     "gulp": "4.0.0"
   }
 }
