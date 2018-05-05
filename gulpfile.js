@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 
 const { deleteFolderAsync, copyFiles, watcher } = require('@ngx-devtools/common');
-const { build, onClientFileChanged, vendorBundle } = require('@ngx-devtools/build');
+const { build, onClientFileChanged, vendorBundle, buildRxjs } = require('@ngx-devtools/build');
 
 const { serverStart, onServerFileChanged } = require('@ngx-devtools/server');
 

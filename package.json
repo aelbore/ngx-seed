@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "gulp": "gulp",
+    "postinstall": "npm run gulp vendor.bundle",
     "start": "npm run gulp -- --watch --livereload --sourceMap",
     "build": "node_modules/.bin/gulp build"
   },
