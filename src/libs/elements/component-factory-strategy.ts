@@ -7,8 +7,8 @@
  */
 
 import {ApplicationRef, ComponentFactory, ComponentFactoryResolver, ComponentRef, EventEmitter, Injector, OnChanges, SimpleChange, SimpleChanges, Type} from '@angular/core';
-import {Observable, merge} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {map, merge} from 'rxjs/operators';
 
 import {NgElementStrategy, NgElementStrategyEvent, NgElementStrategyFactory} from './element-strategy';
 import {extractProjectableNodes} from './extract-projectable-nodes';
@@ -182,7 +182,7 @@ export class ComponentNgElementStrategy implements NgElementStrategy {
       return emitter.pipe(map((value: any) => ({name: templateName, value})));
     });
 
-    this.events = merge(...eventEmitters);
+    this.events = this.events.pipe(merge(...eventEmitters));
   }
 
   /** Calls ngOnChanges with all the inputs that have changed since the last call. */

@@ -1,0 +1,7 @@
+{
+  "build": {
+    "prod": {
+      "files": [ "src/libs/elements/**/*.ts" ]
+    }
+  }
+}
