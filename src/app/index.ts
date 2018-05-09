@@ -4,8 +4,6 @@ import { AppModule } from './app.module';
 
 export * from './app.module';
 export * from './app.component';
-export * from './navbar/index';
-export * from './toolbar/index';
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)

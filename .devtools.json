@@ -1,7 +1,7 @@
 {
   "build": {
     "prod": {
-      "files": [ "src/libs/elements/**/*.ts" ]
+      "files": [ "src/libs/navbar/**/*.ts", "src/libs/toolbar/**/*.ts" ]
     }
   }
 }

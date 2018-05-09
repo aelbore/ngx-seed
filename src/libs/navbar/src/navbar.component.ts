@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'navbar',
+  selector: 'nav-bar',
   templateUrl: './navbar.component.html',
   styleUrls: [ './navbar.component.scss' ]
 })
