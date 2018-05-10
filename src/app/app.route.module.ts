@@ -15,4 +15,4 @@ export const ROUTES: ModuleWithProviders = RouterModule.forRoot([
     { provide: APP_BASE_HREF, useValue : '/' }
   ]
 })
-export class NavbarRouteModule { }
+export class AppRouteModule { }
