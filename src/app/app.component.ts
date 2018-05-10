@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements AfterViewInit { 
 
+  navigations = "asdadasd";
+
   constructor(private router: Router) { }
 
   ngAfterViewInit() {

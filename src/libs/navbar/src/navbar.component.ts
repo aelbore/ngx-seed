@@ -6,6 +6,13 @@ import { Component, Input, Output, EventEmitter, HostListener, OnInit } from '@a
   styleUrls: [ './navbar.component.scss' ]
 })
 export class NavbarComponent  { 
+  _navigations = 'Hey';
+
+  @Input('navigations') public set navigations(value) {
+    console.log(value);
+    this._navigations = value;
+  }
+
   @Output() onNavigate = new EventEmitter();
 
   navigateLink(e: Event, path: string) {
