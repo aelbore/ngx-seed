@@ -8,12 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements AfterViewInit { 
 
-  navigations = "asdadasd";
-
   constructor(private router: Router) { }
 
   ngAfterViewInit() {
-    const navbar = window.document.querySelector('nav-bar');
+    const navbar = window.document.querySelector('ngx-navbar');
     navbar.addEventListener('onNavigate', (e: CustomEvent) => {
       const onSuccessEmit = status => {
         e.target.dispatchEvent(new CustomEvent('onSuccess', { 

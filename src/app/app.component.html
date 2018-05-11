@@ -1,3 +1,8 @@
 <tool-bar></tool-bar>
-<nav-bar navigations="[ { 'text': 'HOME', 'path': '/home'  } ]"></nav-bar>
+<ngx-navbar 
+  nav-items='[ 
+    { "text": "HOME", "path": "/"  },
+    { "text": "ABOUT", "path": "/about"  }  
+'>
+</ngx-navbar>
 <router-outlet></router-outlet>

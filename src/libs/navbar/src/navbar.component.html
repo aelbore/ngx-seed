@@ -1,4 +1,4 @@
 <nav>
-  <a (click)="navigateLink($event, '/')">HOME</a>
-  <a (click)="navigateLink($event, '/about')">ABOUT</a>
+  <a *ngFor="let nav of navigations | async" 
+    (click)="navigateLink($event, nav.path)">{{ nav.text }}</a>
 </nav>
