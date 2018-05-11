@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, HostListener, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 export interface INavigation {
@@ -12,11 +12,11 @@ export interface INavigation {
   styleUrls: [ './navbar.component.scss' ]
 })
 export class NavbarComponent  { 
-  _navigations: Observable<INavigation[]> = of([]);
+  private _navigations$: Observable<INavigation[]> = of([]);
 
   @Output() onNavigate = new EventEmitter();
 
-  @Input('nav-items') set navigations(value) {
+  @Input() set navigations(value) {
     let result: Observable<INavigation[]> = value;
     if (typeof value === 'string') {
       try {
@@ -27,29 +27,32 @@ export class NavbarComponent  {
     } else if (value instanceof Array) {
       result = value;
     } else {
-      throw new Error(`nav-items value: ${value} should be Array.`)
+      throw new Error(`navigations value: ${value} should be Array.`)
     }
-    this._navigations = result;
+    this._navigations$ = result;
   }
 
   get navigations() {
-    return this._navigations;
+    return this._navigations$;
+  }
+
+  private getElementByPath(path: string) {
+    return document.querySelector("nav a[path-url='" + path + "']");
   }
 
   navigateLink(e: Event, path: string) {
     this.onNavigate.emit({ element: e.target, path: path });
   }
 
-  @HostListener('onSuccess', [ '$event' ]) 
-  onSuccess(e: CustomEvent) {
-    const aElements = document.querySelectorAll('nav a');
+  @HostListener('setState', [ '$event' ])
+  setState(e: CustomEvent) {
+    const aElements = document.querySelectorAll('nav a.active');
     for(let i = 0; i <= aElements.length - 1; i++) {
-      aElements[i].classList.remove('active');
+      aElements[0].classList.remove('active');
     }
-    if (e.detail['element']) {
-      const aElement = e.detail.element as HTMLAnchorElement;
-      aElement.classList.add('active');
-    }
-  } 
+    const element = e.detail['element'] || this.getElementByPath(e.detail.path) || this.getElementByPath('/');
+    const aElement = element as HTMLAnchorElement;
+    aElement.classList.add('active'); 
+  }
 
 }

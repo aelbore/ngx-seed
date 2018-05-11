@@ -1,4 +1,6 @@
-<nav>
+<nav> 
   <a *ngFor="let nav of navigations | async" 
-    (click)="navigateLink($event, nav.path)">{{ nav.text }}</a>
+    [attr.path-url]="nav.path" 
+    (click)="navigateLink($event, nav.path)">{{ nav.text }}
+  </a>
 </nav>

@@ -1,5 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app',
@@ -11,17 +11,21 @@ export class AppComponent implements AfterViewInit {
   constructor(private router: Router) { }
 
   ngAfterViewInit() {
-    const navbar = window.document.querySelector('ngx-navbar');
-    navbar.addEventListener('onNavigate', (e: CustomEvent) => {
-      const onSuccessEmit = status => {
-        e.target.dispatchEvent(new CustomEvent('onSuccess', { 
+    const navbar = document.querySelector('ngx-navbar');
+    this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        const homePath = this.router.config.find(value => value.hasOwnProperty('redirectTo'));
+        navbar.dispatchEvent(new CustomEvent('setState', {
           bubbles: true,
-          detail: { element: e.detail.element, status: status }
+          detail: { 
+            path: (homePath && (homePath.redirectTo === e.url || e.url === '/')
+              ? homePath.redirectTo : e.url) 
+          }
         }));
       }
-      this.router.navigateByUrl(e.detail.path)
-        .then(() => onSuccessEmit('success'))
-        .catch(error => onSuccessEmit('error'));
+    });
+    navbar.addEventListener('onNavigate', (e: CustomEvent) => {
+      this.router.navigateByUrl(e.detail.path);
     });
   }
 
