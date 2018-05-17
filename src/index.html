@@ -8,26 +8,7 @@
   </head>
   <body>
     <app>Loading...</app>
-
-    <!--shims -->
     <script src="node_modules/.tmp/shims.min.js"></script>
-
-    <!-- libs -->
-    <script>      
-      fetch('/api/config')
-        .then(res => res.json())
-        .then(data => {
-          System.config(data);
-          return Promise.resolve(data);
-        })
-        .then(() => System.import('node_modules/.tmp/angular.min.js')) 
-        .then(() => Promise.all([ 
-          System.import('dist/navbar/bundles/navbar.umd.js'),
-          System.import('dist/toolbar/bundles/toolbar.umd.js'),
-        ]))
-        .then(() => System.import('app'))
-        .catch((e) => { console.error(e.stack || e) })
-    </script>
-
+    <script src="bundle.js"></script>
   </body>
 </html><!-- livereaload -->

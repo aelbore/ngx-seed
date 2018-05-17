@@ -1,28 +1,19 @@
 {
-  "paths": {
-    "npm:": "node_modules/"
-  },
-  "bundles": {
-    "node_modules/.tmp/Rx.min.js": [
-      "rxjs", 
-      "rxjs/*" 
-    ]
-  },
-  "map": {
-    "app": "main",
-    "tslib": "npm:tslib"
-  },
-  "packages": {
-    "app": {
-      "main": "bundles/main.umd.js",
-      "defaultExtension": "js" 
+  "config": {
+    "bundles": {
+      "node_modules/.tmp/Rx.min.js": [ "rxjs", "rxjs/*"  ]
     },
-    "dist": {
-      "defaultExtension": "js" 
-    },
-    "tslib": { 
-      "main": "tslib.js", 
-      "defaultExtension": "js" 
-    }
-  }   
+    "packages": {
+      "dist": { "defaultExtension": "js"  }
+    }   
+  },
+  "vendors": [
+    "node_modules/tslib/tslib.js",
+    "node_modules/.tmp/angular.min.js"
+  ],
+  "components": [
+    "dist/navbar/bundles/navbar.umd.js",
+    "dist/toolbar/bundles/toolbar.umd.js",
+    "dist/main/bundles/main.umd.js"
+  ]
 }
