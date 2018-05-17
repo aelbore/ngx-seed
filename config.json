@@ -2,32 +2,27 @@
   "paths": {
     "npm:": "node_modules/"
   },
+  "bundles": {
+    "node_modules/.tmp/Rx.min.js": [
+      "rxjs", 
+      "rxjs/*" 
+    ]
+  },
   "map": {
-    "app": "app",
-    "dist": "dist",
-    "tslib": "npm:tslib",
-    "rxjs": "npm:rxjs",
-    "rxjs-compat": "npm:rxjs-compat"
+    "app": "main",
+    "tslib": "npm:tslib"
   },
   "packages": {
-    "app":  { 
-      "main": "index.js",  
+    "app": {
+      "main": "bundles/main.umd.js",
       "defaultExtension": "js" 
     },
-    "dist": { 
-      "main": "index.js", 
+    "dist": {
       "defaultExtension": "js" 
     },
     "tslib": { 
       "main": "tslib.js", 
       "defaultExtension": "js" 
-    },
-    "rxjs": { "main": "index.js", "defaultExtension": "js" },
-    "rxjs/ajax": { "main": "index.js", "defaultExtension": "js" },
-    "rxjs/operators": { "main": "index.js", "defaultExtension": "js" },
-    "rxjs/testing": { "main": "index.js", "defaultExtension": "js" },
-    "rxjs/webSocket": { "main": "index.js", "defaultExtension": "js" },
-    "rxjs/internal-compatibility": { "main": "index.js", "defaultExtension": "js"  },
-    "rxjs-compat": { "main": "index.js", "defaultExtension": "js"  }
+    }
   }   
 }

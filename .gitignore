@@ -4,3 +4,4 @@ package-lock.json
 .DS_Store
 .tmp
 Google Chrome.app
+.rpt2_cache

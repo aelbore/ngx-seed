@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 
-
 const { deleteFolderAsync, copyFile, getFiles, mkdirp, watcher } = require('@ngx-devtools/common');
 const { build, onClientFileChanged, vendorBundle, buildRxjs } = require('@ngx-devtools/build');
 
@@ -17,7 +16,7 @@ gulp.task('build', done => build());
 
 gulp.task('default', done => {  
   return Promise.all([ copyFiles(), build() ])
-    .then(() => Promise.all([ serverStart(), watcher({ onClientFileChanged }) ]))
+    .then(() => Promise.all([ serverStart(), watcher({ onClientFileChanged: onClientFileChanged }) ]))
 });
 
 gulp.task('vendor.bundle', done => vendorBundle()); 

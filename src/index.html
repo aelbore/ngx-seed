@@ -10,9 +10,6 @@
     <app>Loading...</app>
 
     <!--shims -->
-    <script src="node_modules/@webcomponents/custom-elements/src/native-shim.js"></script>
-    <script src="node_modules/@webcomponents/custom-elements/custom-elements.min.js"></script>
-    
     <script src="node_modules/.tmp/shims.min.js"></script>
 
     <!-- libs -->
@@ -23,7 +20,7 @@
           System.config(data);
           return Promise.resolve(data);
         })
-        .then(() => System.import('node_modules/.tmp/angular.min.js'))
+        .then(() => System.import('node_modules/.tmp/angular.min.js')) 
         .then(() => Promise.all([ 
           System.import('dist/navbar/bundles/navbar.umd.js'),
           System.import('dist/toolbar/bundles/toolbar.umd.js'),
