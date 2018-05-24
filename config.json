@@ -8,7 +8,6 @@
     }   
   },
   "vendors": [
-    "node_modules/tslib/tslib.js",
     "node_modules/.tmp/angular.min.js"
   ],
   "components": [
