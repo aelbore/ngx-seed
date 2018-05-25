@@ -11,8 +11,8 @@
     "node_modules/.tmp/angular.min.js"
   ],
   "components": [
+    "dist/main/bundles/main.umd.js",
     "dist/navbar/bundles/navbar.umd.js",
-    "dist/toolbar/bundles/toolbar.umd.js",
-    "dist/main/bundles/main.umd.js"
+    "dist/toolbar/bundles/toolbar.umd.js"
   ]
 }
