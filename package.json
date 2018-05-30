@@ -6,7 +6,7 @@
   "scripts": {
     "gulp": "gulp",
     "postinstall": "gulp vendor.bundle",
-    "start": "gulp -- --watch --livereload",
+    "start": "npm run gulp -- --watch --livereload",
     "build": "gulp build"
   },
   "repository": {
