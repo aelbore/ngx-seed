@@ -1,0 +1,10 @@
+{
+  "build": {
+    "prod": {
+      "files": [
+        "src/libs/toolbar/**/*.ts",
+        "src/libs/navbar/**/*.ts"
+      ]
+    }
+  }
+}

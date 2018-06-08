@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener, ViewEncapsulation } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 export interface INavigation {
@@ -9,7 +9,8 @@ export interface INavigation {
 @Component({
   selector: 'ngx-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: [ './navbar.component.scss' ]
+  styleUrls: [ './navbar.component.scss' ],
+  encapsulation: ViewEncapsulation.Native
 })
 export class NavbarComponent  { 
   private _navigations$: Observable<INavigation[]> = of([]);

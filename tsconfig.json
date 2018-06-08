@@ -16,5 +16,7 @@
     "importHelpers": true
   },
   "include": [
+    "src/**/*.ts",
+    ".tmp/**/*.ts"
   ]
 }
