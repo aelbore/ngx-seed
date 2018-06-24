@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 
@@ -12,12 +11,11 @@ import { ToolbarComponent } from './toolbar.component';
   entryComponents: [ ToolbarComponent ]
 })
 export class ToolbarModule { 
-  ngDoBootstrap() { }
-}
 
-platformBrowserDynamic()
-  .bootstrapModule(ToolbarModule)
-  .then(({ injector }) => {
-    const ToolbarElement = createCustomElement(ToolbarComponent, { injector: injector });
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() { 
+    const ToolbarElement = createCustomElement(ToolbarComponent, { injector: this.injector });
     customElements.define('tool-bar', ToolbarElement);
-  });
+  }
+}
