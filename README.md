@@ -20,46 +20,21 @@ Angular Application Seed
 <br />
 
 ### Commands
+
+* Build your libs code
 ```
 npm run build
 ```
 
-<table>
-  <tr>
-    <th>Arguments</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>--prod</code></td>
-    <td class="tg-us36">It will build all the source code under src/libs</td>
-  </tr>
-  <tr>
-  <tr>
-     <td colspan=2>
-      Example: <br />
-      <code>npm run build -- --prod</code>
-    </td>
-  </tr>
-</table>
+* Build your libs code for production
+```
+npm run build -- --prod
+```
 
-<br />
-<table>
-  <tr>
-    <th>Arguments</th>
-    <th>Description</th>
-  </tr>
- <tr>
-    <td><code>--pkg [path of package.json]</code></td>
-    <td class="tg-us36">This will build your component base on package.json file</td>
- </tr>
- <tr>
-    <td colspan=2>
-      Example: <br />
-      <code>
-        npm run build -- --prod --pkg src/libs/navbar/package.json
-        <br />
-        npm run build -- --pkg src/libs/navbar/package.json
-      </code>
-    </td>
- </tr>
-</table>
+* Build your libs code for a certain package for production
+```
+npm run build -- --prod --pkg src/libs/navbar/package.json
+```
+
+
+
