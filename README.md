@@ -21,19 +21,25 @@ Angular Application Seed
 
 ### Commands
 
-* Build your libs code
+##### Build your libs code
 ```
 npm run build
 ```
 
-* Build your libs code for production
+##### Build your libs code for production
 ```
 npm run build -- --prod
 ```
 
-* Build your libs code for a certain package for production
+##### Build your libs code for a certain package for production
 ```
 npm run build -- --prod --pkg src/libs/navbar/package.json
+```
+
+##### This will start your application
+* It will build, watch file change and livereload you page
+```
+npm start
 ```
 
 
