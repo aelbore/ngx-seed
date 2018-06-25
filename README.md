@@ -39,7 +39,7 @@ Angular Application Seed
 |      |  |  ├─ index.ts                  # export all .ts files or components,modules,pipes and services
 |      |  |  ├─ main.ts                   # bootstrap your web component module
 |      |  |  ├─ navbar.component.html     # <optional>, all your markup codes
-|      |  |  ├─ navbar.component.scss     # <optional>, all your style codes, you can have `.css` extension.
+|      |  |  ├─ navbar.component.scss     # <optional>, all your style codes, you can have `.css`.
 |      |  |  ├─ navbar.component.ts       # all your component, markup <optional>, style <optional>
 |      |  |  └─ navbar.module.ts          # your web component module, define your custom elements
 |      |  └── package.json                # <mandatory> `name` should be same as folder name
