@@ -25,7 +25,7 @@ Angular Application Seed
 ├── node_modules 
 ├── server         
 ├── src           
-|   ├─ app
+|   ├─ app                                # Application Project specific folder
 |   |  ├─ app.component.html 
 |   |  ├─ app.component.scss
 |   |  ├─ app.component.ts 
@@ -33,17 +33,19 @@ Angular Application Seed
 |   |  ├─ app.route.module.ts
 |   |  ├─ index.ts  
 |   |  └─ package.json     
-|   ├─ libs    
-|      ├─ <navbar>
-|        ├─ src
-|        |  ├─ index.ts
-|        |  ├─ main.ts
-|        |  ├─ navbar.component.html
-|        |  ├─ navbar.component.scss
-|        |  ├─ navbar.component.ts
-|        |  └─ navbar.module.ts
-|        └── package.json   	             
-|   
+|   ├─ libs                               # Libs or web components library     
+|      ├─ <navbar>                        # example of web components folder
+|      |  ├─ src                          # this should mandatory, all source code should be inside `src`
+|      |  |  ├─ index.ts                  # export all .ts files or components,modules,pipes and services
+|      |  |  ├─ main.ts                   # bootstrap your web component module
+|      |  |  ├─ navbar.component.html     # <optional>, all your markup codes
+|      |  |  ├─ navbar.component.scss     # <optional>, all your style codes, you can have `.css` extension.
+|      |  |  ├─ navbar.component.ts       # all your component, markup <optional>, style <optional>
+|      |  |  └─ navbar.module.ts          # your web component module, define your custom elements
+|      |  └── package.json                # <mandatory> `name` should be same as folder name
+|      ├─ .....	 	             
+|       
+|  
 ├── README.md
 ├── .devtools.json  
 ├── config.json  
