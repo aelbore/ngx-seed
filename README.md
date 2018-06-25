@@ -54,7 +54,7 @@ Angular Application Seed
 └── tsconfig.json
 ```
 
-### Commands
+### Task & Commands
 
 ##### Build your libs code
 ```
