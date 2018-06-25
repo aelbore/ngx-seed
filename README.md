@@ -77,5 +77,8 @@ npm run build -- --prod --pkg src/libs/navbar/package.json
 npm start
 ```
 
-
+##### Delete dist and .tmp folder
+```
+npm run clean.all
+```
 
