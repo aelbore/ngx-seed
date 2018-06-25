@@ -19,6 +19,39 @@ Angular Application Seed
 
 <br />
 
+### Project Structure
+```
+.
+├── node_modules 
+├── server         
+├── src           
+|   ├─ app
+|   |  ├─ app.component.html 
+|   |  ├─ app.component.scss
+|   |  ├─ app.component.ts 
+|   |  ├─ app.module.ts
+|   |  ├─ app.route.module.ts
+|   |  ├─ index.ts  
+|   |  └─ package.json     
+|   ├─ libs    
+|      ├─ <navbar>
+|        ├─ src
+|        |  ├─ index.ts
+|        |  ├─ main.ts
+|        |  ├─ navbar.component.html
+|        |  ├─ navbar.component.scss
+|        |  ├─ navbar.component.ts
+|        |  └─ navbar.module.ts
+|        └── package.json   	             
+|   
+├── README.md
+├── .devtools.json  
+├── config.json  
+├── gulpfile.js      
+├── package.json
+└── tsconfig.json
+```
+
 ### Commands
 
 ##### Build your libs code
