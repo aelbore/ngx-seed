@@ -40,6 +40,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "6.0.7"
+    "@angular/compiler-cli": "6.0.7",
+    "@ngx-devtools/task": "1.9.2"
   }
 }
