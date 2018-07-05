@@ -1,44 +1,36 @@
 const util = require('util');
 const path = require('path');
+const fs = require('fs');
 
-const { inlineSources } = require('@ngx-devtools/build');
-const { readFileAsync, writeFileAsync, mkdirp } = require('@ngx-devtools/common');
+const { inlineSources, readPackageFile } = require('@ngx-devtools/build');
+const { readFileAsync, writeFileAsync, mkdirp, readdirAsync } = require('@ngx-devtools/common');
 const { rollup } = require('rollup');
 
 const typescript = require('rollup-plugin-typescript2');
+const multiEntry = require('rollup-plugin-multi-entry');
 
-
-const getPkgName = content => {
-  if (util.isString(content)) content = JSON.parse(content);
-  const names = content.name.split('/');
-  return ((names.length < 2) ? content.name : names[1]);
-};
-
-const readPackageFile = src => {
-  const source = src.split(path.sep).join('/').replace('/**/*.ts', '');
-  const filePath = path.join(source, 'package.json');
-  return readFileAsync(filePath, 'utf8')
-    .then(content => {
-      const pkg = JSON.parse(content);
-      return Promise.resolve(getPkgName(pkg));
-    });
-};
-
-const build = (src, dest) => {
-  return readPackageFile(src)
-    .then(pkgName => {
-      const destSrc = path.resolve(dest);
-      const folderTempBaseDir = path.join(destSrc.replace(path.basename(destSrc), '.tmp'), pkgName);
-      return inlineSources(src, pkgName)
-        .then(() => Promise.resolve(folderTempBaseDir));
-    });
+const getSrcDirectories = () => {   
+  const getSource = (directory) => {
+    return (util.isString(directory)) 
+      ? { src: directory.replace('/**/*.ts', ''), dest: 'dist' }
+      : { src: directory.src.replace('/**/*.ts', ''), dest: directory.dest }
+  };
+  const readdir = (srcDir) => {
+    return readdirAsync(srcDir)
+      .then(files => {
+        const filePath = (file) => path.join(path.resolve(), srcDir, file);
+        const directories = files.filter(file => fs.statSync(filePath(file)).isDirectory());
+        return directories.map(directory => getSource(path.join(srcDir, directory, 'package.json')));
+      });
+  };
+  return readdir('src/elements');
 };
 
 const rollupConfig = {
   input: {
-    input: '.tmp/index.ts',
     treeshake: true,
     plugins: [
+      multiEntry(),
       typescript({ 
         useTsconfigDeclarationDir: true,
         check: false,
@@ -75,7 +67,7 @@ const rollupConfig = {
     sourcemap: true,
     name: 'elements',
     format: 'umd',
-    file: 'dist/elements.umd.js',
+    file: 'dist/elements/bundles/elements.umd.js',
     exports: 'named',
     globals: {
       "@angular/core": "ng.core",
@@ -101,21 +93,27 @@ const rollupConfig = {
   }
 }
 
-const elements = [
-  'src/libs/navbar/**/*.ts',
-  'src/libs/toolbar/**/*.ts'
-];
-
-Promise.all(elements.map(element => build(element, 'dist')))
-  .then(() => {
-    return rollup(rollupConfig.input)
-      .then(async bundle => {
+getSrcDirectories()
+  .then(pkgFiles => {
+    return Promise.all(pkgFiles.map(pkgFile => {
+      return readPackageFile(pkgFile.src)
+        .then(pkgName => inlineSources(pkgFile.src, pkgName))
+        .then(tmpSrc => path.join(tmpSrc, 'src', 'index.ts'))
+    }))
+  }).then(inputs => {
+    return rollup({ ...rollupConfig.input, ...{ input: inputs } })
+      .then(bundle => bundle.generate(rollupConfig.output))
+      .then(({ code, map }) => {
         const file = rollupConfig.output.file;
-        const { code, map  } = await bundle.generate(rollupConfig.output);
         mkdirp(path.dirname(file));
         return Promise.all([
           writeFileAsync(file, code + `\n//# sourceMappingURL=${path.basename(file)}.map`),
           writeFileAsync(file + '.map', map.toString())
         ]);
-      })
-  });
+      });
+  }).catch(error => console.log(error));
+  
+
+
+
+
