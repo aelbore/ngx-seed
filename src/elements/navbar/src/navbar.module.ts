@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { createCustomElement } from '@angular/elements';
 
 import { NavbarComponent } from './navbar.component';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+const TAG_ELEMENT = 'ngx-navbar';
 
 @NgModule({
   imports: [ BrowserModule, CommonModule ],
@@ -16,6 +19,11 @@ export class NavbarModule {
 
   ngDoBootstrap() { 
     const NavbarElement = createCustomElement(NavbarComponent, { injector: this.injector });
-    customElements.define('ngx-navbar', NavbarElement);
+    customElements.define(TAG_ELEMENT, NavbarElement);
   }
+}
+
+if (!(customElements.get(TAG_ELEMENT))) {
+  platformBrowserDynamic()
+    .bootstrapModule(NavbarModule);
 }

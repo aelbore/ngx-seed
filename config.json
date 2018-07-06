@@ -12,7 +12,6 @@
   ],
   "components": [
     "dist/main/bundles/main.umd.js",
-    "dist/navbar/bundles/navbar.umd.js",
-    "dist/toolbar/bundles/toolbar.umd.js"
+    "dist/elements/bundles/elements.umd.js"
   ]
 }
