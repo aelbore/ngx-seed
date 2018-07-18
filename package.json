@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "6.0.7",
-    "@ngx-devtools/task": "1.9.2"
+    "@ngx-devtools/task": "latest",
+    "terser": "^3.7.8"
   }
 }
