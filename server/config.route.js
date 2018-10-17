@@ -1,8 +1,8 @@
-const { RouterFactory, ROUTE_METHOD } = require('@ngx-devtools/server/builder');
+const { RouterFactory, HTTP_METHOD } = require('@ngx-devtools/server');
 
 module.exports = RouterFactory.create({
   path: '/config',
-  method: ROUTE_METHOD.GET,
+  method: HTTP_METHOD.GET,
   handler (req, res, next) {
     return res.status(200).json(require('../config.json'));
   }
