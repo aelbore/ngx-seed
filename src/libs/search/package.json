@@ -1,5 +1,5 @@
 {
-  "name": "@ngx-seed/about",
+  "name": "search",
   "version": "1.0.0",
   "description": "Angular Application Seed",
   "main": "index.js",
@@ -12,6 +12,5 @@
   "bugs": {
     "url": "https://github.com/aelbore/ngx-seed/issues"
   },
-  "homepage": "https://github.com/aelbore/ngx-seed#readme",
-  "typings": "./about.d.ts"
+  "homepage": "https://github.com/aelbore/ngx-seed#readme"
 }

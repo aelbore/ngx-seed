@@ -2,7 +2,6 @@ import { NgModule, Injector, ModuleWithProviders, CUSTOM_ELEMENTS_SCHEMA } from 
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
 import { AppRouteModule } from './app.route.module';
@@ -15,12 +14,4 @@ import { AppRouteModule } from './app.route.module';
   entryComponents: [ AppComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
-export class AppModule { 
-
-  constructor(private injector: Injector) { }
-
-  ngDoBootstrap() { 
-    const AppElement = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('app', AppElement);
-  }
-}
+export class AppModule {  }

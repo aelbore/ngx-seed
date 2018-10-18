@@ -11,7 +11,7 @@
     "node_modules/.tmp/angular.min.js"
   ],
   "components": [
-    "dist/main/bundles/main.umd.js",
-    "dist/elements/bundles/elements.umd.js"
+    "main/bundles/main.umd.js",
+    "elements/bundles/elements.umd.js"
   ]
 }

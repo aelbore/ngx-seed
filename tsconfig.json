@@ -2,8 +2,8 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
-    "module": "es2015",
+    "target": "es6",
+    "module": "esNext",
     "moduleResolution": "node",
     "removeComments": true,
     "sourceMap": true,
@@ -16,7 +16,7 @@
     "importHelpers": true
   },
   "include": [
-    "src/**/*.ts",
-    ".tmp/**/*.ts"
+    ".tmp/**/*",
+    "src/**/*.ts"
   ]
 }
