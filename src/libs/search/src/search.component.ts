@@ -1,45 +1,71 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
+
 import { of } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { MatTableDataSource } from '@angular/material';
-import { SearchService } from '.tmp/search/src/search.service';
-import { GitHubUserRepo } from './search.service';
+
+import { SearchService } from './search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
   styleUrls: [ './search.component.scss' ]
 })
-export class SearchComponent implements OnInit { 
+export class SearchComponent { 
 
   displayedColumns: string[] = ['id', 'name', 'description', 'actions'];
-  dataSource = new MatTableDataSource<any>();
+  pageSizeOptions: number[] = [5, 10, 20];
+  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
+  
+  loading = false;
+  message = null;
+  duration = 0;
 
-  constructor(private searchService: SearchService) { }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngOnInit() {
-    this.getRepos('');
-  }
+  constructor(private router: Router, private searchService: SearchService) { }
 
   onChange(e: CustomEvent) {
     of(e.detail.value)
       .pipe(
-        debounceTime(500),
+        debounceTime(700),
         distinctUntilChanged()
       )
       .subscribe((text: string) => {
-        console.log(text);
+        text.length ? this.getRepos(text) : this.reset()
       });
   }
 
+  reset() {
+    this.dataSource.data = [];
+  }
+
   getRepos(username: string) {
+    this.loading = true;
+    this.dataSource.paginator = this.paginator;
     this.searchService
       .getRepos(username)
       .subscribe(
         data => this.dataSource.data = data,
-        error => console.log(error),
-        () => console.log('Hide the spinner.')
+        error => this.showError(error.message),
+        () => this.loading = false
       );
+  }
+
+  viewReadme(repo: string) {    
+    const [ username,  repository ] = repo.split('/');
+    this.router.navigate(['readme', username, repository]);
+  }
+
+  showError(error: string) {
+    this.message = {
+      severity: 'error',
+      summary: 'Error',
+      detail: error
+    };
+    this.duration = 3000;
+    this.loading = false;
   }
 
 }

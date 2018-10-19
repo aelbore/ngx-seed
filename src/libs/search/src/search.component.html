@@ -1,33 +1,41 @@
 
 <div class="flex-container">
-  <ar-input placeholder="Search Github username" (ar.change)="onChange($event)"></ar-input>
-  <mat-table #table [dataSource]="dataSource">
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> ID. </mat-header-cell>
-      <mat-cell *matCellDef="let element">{{ element.id || '' }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element">{{ element.name || '' }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
-      <mat-cell *matCellDef="let element">{{ element.description || '' }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef></mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <button mat-mini-fab color="primary">
-          <mat-icon>library_books</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  <ar-input placeholder="Search username" (ar.change)="onChange($event)"></ar-input>
+  <div class="table-container">
+    <div class="spinner" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <mat-table #table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.id || '' }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.name || '' }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.description || '' }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element" class="align-icon-right">
+          <button mat-mini-fab color="primary" (click)="viewReadme(element.full_name)">
+            <mat-icon>library_books</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div *ngIf="dataSource.data.length === 0" class="empty-state">No records found</div>
+    <mat-paginator [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+  </div>
+  <ar-toast [message]="message" [duration]="duration"></ar-toast>
 </div>
 

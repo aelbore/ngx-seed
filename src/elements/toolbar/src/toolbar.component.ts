@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
   selector: 'toolbar',
@@ -6,4 +6,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: [ './toolbar.component.scss' ],
   encapsulation: ViewEncapsulation.Native
 })
-export class ToolbarComponent { }
+export class ToolbarComponent { 
+
+  @Input() header = 'Github';
+
+
+}

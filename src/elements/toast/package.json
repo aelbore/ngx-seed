@@ -1,0 +1,16 @@
+{
+  "name": "toast",
+  "version": "1.0.0",
+  "description": "Toast Element",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+http://github.com/toast.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "http://github.com"
+  },
+  "homepage": "http://github.com/toast"
+}

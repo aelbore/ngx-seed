@@ -8,4 +8,32 @@
       flex: 1 100%;
     }
   }
+
+  .align-icon-right {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 120px;
+  }
+
+  .table-container {
+    position: relative;
+
+    .spinner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 56px;
+      right: 0;
+      background: rgba(0, 0, 0, 0.15);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 20px;
+    }
+  }
 }

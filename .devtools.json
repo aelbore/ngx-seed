@@ -1,9 +1,14 @@
 {
+  "title": "Github",
+  "favicon": "src/favicon.ico",
   "build": {
+    "prod": {
+      "elements": [ "input", "toast", "toolbar" ]
+    },
     "styles": [
       "src/style.css",
       "src/fonts.css",
-      "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+      "src/indigo-pink.css"
     ]
   }
 }

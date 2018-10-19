@@ -3,7 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatToolbarModule, MatInputModule, MatTableModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { 
+  MatButtonModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatSnackBarModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 
 import { SearchComponent } from './search.component';
 import { SearchService } from './search.service';
@@ -16,11 +27,16 @@ export const ROUTES: ModuleWithProviders = RouterModule.forChild([
   imports: [ 
     ROUTES, 
     CommonModule, 
-    MatIconModule,
-    MatToolbarModule, 
-    MatInputModule, 
-    MatTableModule, 
     MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatToolbarModule,
     HttpClientModule
   ],
   declarations: [ SearchComponent ],
