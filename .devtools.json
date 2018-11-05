@@ -1,0 +1,13 @@
+{
+  "title": "Hello World",
+  "build": {
+    "scripts": [
+      "node_modules/core-js/client/shim.min.js",
+      "node_modules/zone.js/dist/zone.min.js",
+      "node_modules/rxjs/bundles/rxjs.umd.min.js",
+      "node_modules/@angular/core/bundles/core.umd.min.js",
+      "node_modules/@angular/common/bundles/common.umd.min.js",
+      "main/bundles/main.umd.js"
+    ]
+  }
+}
